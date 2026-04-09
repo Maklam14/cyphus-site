@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Preciso de Ajuda | Cyphus</title>
+  <link rel="stylesheet" href="2.css" />
+  <script src="//code.jivosite.com/widget/MU9H6JgwEX" async></script>
+
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="header">
+    <div class="container header__inner">
+      <a class="brand" href="#inicio" aria-label="Cyphus">
+        <img class="brand__logo" src="assets/logo/logo-cyphus.png" alt="Logo Cyphus" />
+      </a>
+
+      <nav class="nav" aria-label="Navegação principal">
+        <a href="#duvidas">Dúvidas</a>
+        <a href="#contato">Contato</a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Alternar tema">☾</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero" id="inicio">
+      <div class="container hero__grid">
+        <div class="hero__content">
+          <span class="eyebrow">Precisa de ajuda? Estamos aqui.</span>
+          <h1>Bem vindo.</h1>
+          <p>
+            Use esta página para tirar dúvidas sobre tamanhos, frete, pagamento,
+            trocas e qualquer problema com seu pedido.
+          </p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#contato">Falar com a equipe</a>
+            <a class="btn btn--ghost" href="#duvidas">Ver perguntas frequentes</a>
+          </div>
+        </div>
+
+        <aside class="support-card">
+          <h2>Atendimento</h2>
+          <div class="support-card__list">
+            <div class="support-item">
+              <strong>Resposta rápida</strong>
+              <p>Normalmente respondemos no mesmo dia útil.</p>
+            </div>
+            <div class="support-item">
+              <strong>Trocas</strong>
+              <p>Troca por tamanho ou defeito após o recebimento.</p>
+            </div>
+            <div class="support-item">
+              <strong>Pedido</strong>
+              <p>Você acompanha tudo pelo e-mail de confirmação.</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="duvidas">
+      <div class="container">
+        <div class="section__head">
+          <h2>Perguntas frequentes</h2>
+          <p>As respostas mais importantes para o cliente decidir sem dúvida.</p>
+        </div>
+
+        <div class="faq-grid">
+          <article class="faq-card">
+            <h3>Como escolher o tamanho?</h3>
+            <p>Use a guia de medidas e compare com uma peça sua. Se quiser caimento oversized, escolha um tamanho acima.</p>
+          </article>
+          <article class="faq-card">
+            <h3>Quais formas de pagamento?</h3>
+            <p>O site pode aceitar cartão, Pix e outros meios configurados no checkout.</p>
+          </article>
+          <article class="faq-card">
+            <h3>Quanto tempo leva o envio?</h3>
+            <p>O prazo depende da sua região e é calculado no checkout junto com o frete.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--contact" id="contato">
+      <div class="container contact-grid">
+        <div class="contact-card">
+          <h2>Fale com a Cyphus</h2>
+          <form class="contact-form" id="contactForm">
+            <div class="field">
+              <label for="name">Seu nome</label>
+              <input id="name" name="name" type="text" placeholder="Digite seu nome" />
+            </div>
+            <div class="field">
+              <label for="email">Seu e-mai</label>
+              <input id="email" name="email" type="email" placeholder="exemplo@email.com" />
+            </div>
+            <div class="field">
+              <label for="message">Como podemos ajudar?</label>
+              <textarea id="message" name="message" placeholder="Escreva sua dúvida, pedido ou problema"></textarea>
+            </div>
+            <button class="btn btn--primary" type="submit">Enviar mensagem</button>
+          </form>
+          <p class="form-note" id="formNote" aria-live="polite"></p>
+        </div>
+
+        <aside class="info-card">
+          <h2>Informações rápidas</h2>
+          <ul>
+            <li><strong>E-mail:</strong> cyphusbr@outlook.com</li>
+            <li><strong>Instagram:</strong> @cyphus</li>
+            <li><strong>Horário:</strong> Segunda a sexta, 9h às 18h</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span>Cyphus © 2026</span>
+      <span>Sua loja de roupas favorita.</span>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+
+  <script>
+document.getElementById("contactForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const formNote = document.getElementById("formNote");
+
+  const data = {
+    name: e.target.name.value,
+    email: e.target.email.value,
+    message: e.target.message.value
+  };
+
+  formNote.textContent = "Enviando...";
+
+  const response = await fetch("http://localhost:3000/send-email", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data)
+  });
+
+  const result = await response.json();
+
+  if (result.success) {
+    formNote.textContent = "Mensagem enviada com sucesso!";
+    e.target.reset();
+  } else {
+    formNote.textContent = "Erro ao enviar. Tente novamente.";
+  }
+});
+</script>
+
+</body>
+</html>

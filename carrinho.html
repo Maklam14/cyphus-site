@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrinho | Cyphus</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- TOAST -->
+  <div id="toast" class="toast" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+
+      <a href="index.html" class="brand">CYPHUS</a>
+
+      <form class="header-search" action="#" method="get">
+        <input type="text" name="q" placeholder="Buscar" aria-label="Buscar produtos">
+        <button type="submit" aria-label="Pesquisar">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8" />
+            <path d="M20 20L16.65 16.65" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+          </svg>
+        </button>
+      </form>
+
+      <nav class="main-nav">
+        <a href="carrinho.html">
+          Carrinho <span id="cart-count" class="cart-count"></span>
+        </a>
+        <a href="#">Entrar</a>
+        <a href="precisa-ajuda.html" target="_blank">Precisa de ajuda?</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- CARRINHO -->
+  <main class="cart-page container">
+
+    <section class="cart-list">
+      <h1>Seu carrinho</h1>
+
+      <!-- Itens inseridos via JS -->
+      <div id="cart-items" class="cart-items"></div>
+
+      <!-- Mensagem de carrinho vazio -->
+      <p id="cart-empty-message" class="cart-empty" style="display:none;">
+        Seu carrinho está vazio.
+      </p>
+    </section>
+
+    <aside class="cart-summary">
+      <h2>Resumo</h2>
+
+      <div class="cart-summary-row">
+        <span>Subtotal</span>
+        <span id="subtotal">R$ 0,00</span>
+      </div>
+
+      <div class="cart-summary-row">
+        <span>Frete</span>
+        <span id="frete">R$ 0,00</span>
+      </div>
+
+      <div class="cart-summary-row total">
+        <span>Total</span>
+        <span id="total">R$ 0,00</span>
+      </div>
+
+      <button class="btn-finalizar" id="btnCheckout">Finalizar compra</button>
+    </aside>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>CYPHUS</p>
+      <p>© 2026</p>
+    </div>
+  </footer>
+
+  <!-- SCRIPT -->
+  <script src="cart.js"></script>
+
+</body>
+</html>
