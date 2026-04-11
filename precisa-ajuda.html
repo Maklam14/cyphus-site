@@ -128,36 +128,7 @@
 
   <script src="script.js" defer></script>
 
-  <script>
-document.getElementById("contactForm").addEventListener("submit", async (e) => {
-  e.preventDefault();
 
-  const formNote = document.getElementById("formNote");
-
-  const data = {
-    name: e.target.name.value,
-    email: e.target.email.value,
-    message: e.target.message.value
-  };
-
-  formNote.textContent = "Enviando...";
-
-  const response = await fetch("http://localhost:3000/send-email", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data)
-  });
-
-  const result = await response.json();
-
-  if (result.success) {
-    formNote.textContent = "Mensagem enviada com sucesso!";
-    e.target.reset();
-  } else {
-    formNote.textContent = "Erro ao enviar. Tente novamente.";
-  }
-});
-</script>
 
 </body>
 </html>

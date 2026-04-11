@@ -22,8 +22,6 @@ import {
     getDownloadURL 
 } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-storage.js";
 
-const firebaseConfig = { /* seu config */ };
-
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
@@ -117,3 +115,4 @@ onAuthStateChanged(auth, async (user) => {
         window.location.href = "entrar.html";
     };
 });
+

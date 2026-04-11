@@ -58,43 +58,5 @@
     </div>
 
 
-
-    <!-- SCRIPT DO FIREBASE -->
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-app.js";
-        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-auth.js";
-
-        const firebaseConfig = {
-            apiKey: "AIzaSyCUYDq5MUsvDDF9AhlJcMYO89PFkI1el20",
-            authDomain: "cyphus-50845.firebaseapp.com",
-            projectId: "cyphus-50845",
-            storageBucket: "cyphus-50845.firebasestorage.app",
-            messagingSenderId: "453655824258",
-            appId: "1:453655824258:web:11ce244f8ee89c3019719b",
-            measurementId: "G-HCEP9HDFJL"
-        };
-
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-
-        const form = document.getElementById("login-form");
-
-        form.addEventListener("submit", (e) => {
-            e.preventDefault();
-
-            const email = document.getElementById("email").value;
-            const senha = document.getElementById("senha").value;
-
-            signInWithEmailAndPassword(auth, email, senha)
-                .then((userCredential) => {
-                    alert("Login realizado com sucesso!");
-                    window.location.href = "painel.html"; // página protegida
-                })
-                .catch((error) => {
-                    alert("Erro ao entrar: " + error.message);
-                });
-        });
-    </script>
-
 </body>
 </html>
