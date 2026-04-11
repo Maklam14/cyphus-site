@@ -55,3 +55,79 @@
   color: var(--dark-blue);
 }
 
+/* ============================
+| PERFIL DO USUÁRIO
+============================== */
+
+/* Card especial para o perfil */
+.profile-card {
+  text-align: center;
+  padding: 40px;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: #fff;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+}
+
+/* Cabeçalho do perfil */
+.profile-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Avatar redondo */
+.profile-avatar {
+  width: 90px;
+  height: 90px;
+  background: var(--primary);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+}
+
+/* Informações do usuário */
+.profile-info {
+  text-align: left;
+  margin: 0 auto 2rem auto;
+  max-width: 300px;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.profile-info p {
+  margin-bottom: 12px;
+  color: var(--dark-blue);
+}
+
+.profile-info strong {
+  font-weight: 700;
+}
+
+.profile-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.btn-danger {
+  background: #d9534f;
+  color: #fff;
+}
+
+.profile-photo {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: none;
+  margin-bottom: 1rem;
+}

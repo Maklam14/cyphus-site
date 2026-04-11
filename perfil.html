@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil - Cyphus</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="auth.css">
+</head>
+<body>
+
+    <!-- Cabeçalho padrão Cyphus -->
+    <header class="header">
+        <div class="container header-content">
+
+            <a href="index.html" class="logo">CYPHUS</a>
+
+            <div class="header-search">
+                <input type="text" placeholder="Buscar">
+            </div>
+
+            <nav class="header-nav">
+                <a href="carrinho.html">Carrinho</a>
+                <a href="perfil.html">Perfil</a>
+                <a href="#">Precisa de ajuda?</a>
+            </nav>
+
+        </div>
+    </header>
+
+    <!-- Conteúdo -->
+    <div class="auth-container profile-card">
+
+    <div class="profile-header">
+        <img id="profile-photo" class="profile-photo" src="default-avatar.png" alt="Foto de perfil">
+        <div class="profile-avatar" id="profile-avatar">T</div>
+        <h2 class="auth-title">Meu Perfil</h2>
+    </div>
+
+    <div class="profile-info">
+        <p><strong>Email:</strong> <span id="user-email"></span></p>
+        <p><strong>ID do usuário:</strong> <span id="user-uid"></span></p>
+        <p><strong>Endereço:</strong> <span id="user-address">Nenhum endereço cadastrado</span></p>
+    </div>
+
+    <div class="profile-actions">
+        <button class="btn btn-dark auth-btn" id="change-email">Alterar Email</button>
+        <button class="btn btn-dark auth-btn" id="change-password">Alterar Senha</button>
+        <button class="btn btn-dark auth-btn" id="change-address">Alterar Endereço</button>
+        <button class="btn btn-dark auth-btn" id="upload-photo">Alterar Foto de Perfil</button>
+        <button class="btn btn-danger auth-btn" id="delete-account">Excluir Conta</button>
+        <button class="btn btn-dark auth-btn" id="logout">Sair</button>
+    </div>
+
+    <p class="auth-link">
+        <a href="index.html">Voltar para a loja</a>
+    </p>
+
+</div>
+
+<!-- Input oculto para upload -->
+<input type="file" id="photo-input" accept="image/*" style="display:none;">
+
+
+    <!-- Firebase -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-app.js";
+        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyCUYDq5MUsvDDF9AhlJcMYO89PFkI1el20",
+            authDomain: "cyphus-50845.firebaseapp.com",
+            projectId: "cyphus-50845",
+            storageBucket: "cyphus-50845.firebasestorage.app",
+            messagingSenderId: "453655824258",
+            appId: "1:453655824258:web:11ce244f8ee89c3019719b",
+            measurementId: "G-HCEP9HDFJL"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                document.getElementById("user-email").innerText =
+                    "Email: " + user.email;
+
+                document.getElementById("user-uid").innerText =
+                    "ID do usuário: " + user.uid;
+            } else {
+                window.location.href = "entrar.html";
+            }
+        });
+
+        document.getElementById("logout").addEventListener("click", () => {
+            signOut(auth).then(() => {
+                window.location.href = "entrar.html";
+            });
+        });
+    </script>
+
+    <script type="module" src="profile.js"></script>
+</body>
+</html>
