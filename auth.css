@@ -1,0 +1,57 @@
+/* ============================
+| LAYOUT DO CONTAINER
+============================== */
+
+.auth-container {
+  max-width: 420px;
+  margin: 60px auto;
+  padding: 32px;
+}
+
+/* Título */
+.auth-title {
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--dark-blue);
+  text-align: center;
+}
+
+/* Texto abaixo do formulário */
+.auth-link {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+.auth-link a {
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.auth-link a:hover {
+  text-decoration: underline;
+}
+
+/* ============================
+| BOTÃO PRINCIPAL
+============================== */
+
+.auth-btn {
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* ============================
+| PAINEL DO USUÁRIO
+============================== */
+
+.user-info {
+  text-align: center;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  color: var(--dark-blue);
+}
+
