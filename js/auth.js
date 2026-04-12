@@ -66,3 +66,25 @@ if (btnLogout) {
     window.location.href = "entrar.html";
   });
 }
+async function atualizarHeader() {
+  const { data } = await supabase.auth.getSession();
+
+  const loginBtn = document.getElementById("login-link");
+  const painelBtn = document.getElementById("painel-link");
+
+
+  if (!loginBtn || !painelBtn) return;
+
+  if (data.session) {
+    // Usuário logado
+    loginBtn.style.display = "none";
+    painelBtn.style.display = "inline-block";
+  } else {
+    // Usuário deslogado
+    loginBtn.style.display = "inline-block";
+    painelBtn.style.display = "none";
+  }
+}
+
+atualizarHeader();
+
