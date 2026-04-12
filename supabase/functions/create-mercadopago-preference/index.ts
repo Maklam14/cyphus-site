@@ -97,7 +97,6 @@ Deno.serve(async (req) => {
         order_number: orderNumber,
         status: "Aguardando pagamento",
         total,
-        shipping_cost: shippingValue,
         payment_provider: "mercadopago",
         payment_status: "pending",
         order_nsu: orderNumber,
