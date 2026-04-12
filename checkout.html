@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -8,10 +9,12 @@
 </head>
 <body>
 
+
 <!-- HEADER -->
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="brand">CYPHUS</a>
+
 
       <form class="header-search" action="#" method="get">
         <input type="text" name="q" placeholder="Buscar" aria-label="Buscar produtos">
@@ -23,7 +26,8 @@
         </button>
       </form>
 
-            <nav class="main-nav">
+
+          <nav class="main-nav">
         <a href="carrinho.html">
           Carrinho <span id="cart-count" class="cart-count"></span>
         </a>
@@ -34,227 +38,156 @@
     </div>
   </header>
 
+
 <section class="checkout-section">
   <div class="checkout-container">
 
+
     <div class="checkout-left">
+
 
   <!-- DADOS PESSOAIS -->
   <div class="checkout-block" id="step-pessoal">
     <h2 class="block-title">Dados pessoais</h2>
 
-    <div class="form-group">
-      <label>Nome completo</label>
-      <input type="text" placeholder="Seu nome">
-    </div>
 
     <div class="form-group">
-      <label>Email</label>
-      <input type="email" placeholder="seuemail@exemplo.com">
+      <label>Nome completo *</label>
+      <input type="text" id="nome-completo" placeholder="Seu nome" required>
     </div>
+
+
+    <div class="form-group">
+      <label>Email *</label>
+      <input type="email" id="email-checkout" placeholder="seuemail@exemplo.com" required>
+    </div>
+
 
     <div class="form-group">
       <label>Telefone</label>
-      <input type="text" placeholder="(00) 00000-0000">
+      <input type="tel" id="telefone" placeholder="(00) 00000-0000">
     </div>
 
-    <button class="btn-next">Ir para entrega</button>
+
+    <button class="btn-next" id="btn-to-entrega">Ir para entrega</button>
   </div>
 
+
   <!-- ENTREGA -->
-  <div class="checkout-block" id="step-entrega">
+  <div class="checkout-block hidden" id="step-entrega">
     <h2 class="block-title">Entrega</h2>
 
-    <div class="form-group">
-      <label>CEP</label>
-      <input type="text" placeholder="00000-000">
-    </div>
 
     <div class="form-group">
-      <label>Rua</label>
-      <input type="text" placeholder="Nome da rua">
+      <label>CEP *</label>
+      <input type="text" id="cep" placeholder="00000-000" required>
     </div>
+
+
+    <div class="form-group">
+      <label>Rua *</label>
+      <input type="text" id="rua" placeholder="Nome da rua" required>
+    </div>
+
 
     <div class="form-row">
       <div class="form-group">
-        <label>Número</label>
-        <input type="text" placeholder="123">
+        <label>Número *</label>
+        <input type="text" id="numero" placeholder="123" required>
       </div>
+
 
       <div class="form-group">
         <label>Complemento</label>
-        <input type="text" placeholder="Opcional">
+        <input type="text" id="complemento" placeholder="Opcional">
       </div>
     </div>
+
 
     <div class="form-row">
       <div class="form-group">
-        <label>Bairro</label>
-        <input type="text" placeholder="Bairro">
+        <label>Bairro *</label>
+        <input type="text" id="bairro" placeholder="Bairro" required>
       </div>
+
 
       <div class="form-group">
-        <label>Cidade</label>
-        <input type="text" placeholder="Cidade">
+        <label>Cidade *</label>
+        <input type="text" id="cidade" placeholder="Cidade" required>
       </div>
     </div>
 
+
     <div class="form-group">
-      <label>Estado</label>
-      <input type="text" placeholder="UF">
+      <label>Estado *</label>
+      <input type="text" id="estado" placeholder="UF" required>
     </div>
 
-    <button class="btn-next">Ir para pagamento</button>
+
+    <button class="btn-next" id="btn-to-pagamento">Ir para pagamento</button>
   </div>
+
 
   <!-- PAGAMENTO -->
- <!-- PAGAMENTO -->
-<div class="checkout-block" id="step-pagamento">
-  <h2 class="block-title">Pagamento</h2>
+  <div class="checkout-block hidden" id="step-pagamento">
+    <h2 class="block-title">Pagamento</h2>
 
-  <!-- BOTÕES DE MÉTODO -->
-  <div class="payment-methods">
-    <button class="payment-option active" data-method="credit">Cartão de crédito</button>
-    <button class="payment-option" data-method="debit">Cartão de débito</button>
-    <button class="payment-option" data-method="pix">Pix</button>
-    <button class="payment-option" data-method="boleto">Boleto bancário</button>
-  </div>
 
-  <!-- FORM CARTÃO -->
-  <div class="payment-form" id="payment-credit">
-    <div class="form-group">
-      <label>Número do cartão</label>
-      <input type="text" placeholder="0000 0000 0000 0000">
+    <div class="payment-methods">
+      <button class="payment-option active" data-method="mp">Mercado Pago</button>
     </div>
 
-    <div class="form-row">
-      <div class="form-group">
-        <label>Validade</label>
-        <input type="text" placeholder="MM/AA">
-      </div>
 
-      <div class="form-group">
-        <label>CVV</label>
-        <input type="text" placeholder="000">
+    <div class="payment-info">
+      <p>Pagamento seguro via Mercado Pago</p>
+      <div class="payment-logos">
+        <span>🟢 Pix</span>
+        <span>💳 Cartão</span>
+        <span>💰 Boleto</span>
       </div>
     </div>
+
+
+    <button class="btn-finalizar-pedido" id="btn-finalizar">Finalizar pedido</button>
   </div>
 
-  <!-- FORM DÉBITO -->
-<div class="payment-form hidden" id="payment-debit">
-  <div class="form-group">
-    <label>Número do cartão</label>
-    <input type="text" placeholder="0000 0000 0000 0000">
-  </div>
 
-  <div class="form-row">
-    <div class="form-group">
-      <label>Validade</label>
-      <input type="text" placeholder="MM/AA">
-    </div>
-
-    <div class="form-group">
-      <label>CVV</label>
-      <input type="text" placeholder="000">
-    </div>
-  </div>
-
-  <p style="margin-top: 10px; font-size: 14px; color: #555;">
-    O pagamento será processado automaticamente pelo seu banco.
-  </p>
 </div>
 
-  <!-- FORM PIX -->
-  <div class="payment-form hidden" id="payment-pix">
-    <p>Ao finalizar o pedido, um QR Code será gerado para pagamento instantâneo.</p>
-  </div>
-
-  <!-- FORM BOLETO -->
-  <div class="payment-form hidden" id="payment-boleto">
-    <p>O boleto será gerado após finalizar o pedido.</p>
-  </div>
-
-  <button class="btn-finalizar-pedido">Finalizar pedido</button>
-</div>
-
-</div>
 
     <div class="checkout-summary">
+
 
   <div class="summary-row">
     <span>Subtotal</span>
     <span id="summary-subtotal">R$ 0,00</span>
   </div>
 
+
   <div class="summary-row">
     <span>Frete</span>
     <span id="summary-frete">R$ 0,00</span>
   </div>
+
 
   <div class="summary-row total">
     <span>Total</span>
     <span id="summary-total">R$ 0,00</span>
   </div>
 
-  <a href="carrinho.html" class="back-cart">Voltar para o carrinho</a>
+
+  <a href="carrinho.html" class="back-cart">← Voltar para o carrinho</a>
+
 
 </div>
 </div>
   </div>
 </section>
 
-<script>
-  const stepPessoal = document.getElementById("step-pessoal");
-  const stepEntrega = document.getElementById("step-entrega");
-  const stepPagamento = document.getElementById("step-pagamento");
 
-  const btnToEntrega = stepPessoal.querySelector(".btn-next");
-  const btnToPagamento = stepEntrega.querySelector(".btn-next");
+<script type="module" src="checkout.js"></script>
+<script type="module" src="./js/auth.js"></script>
 
-  btnToEntrega.addEventListener("click", () => {
-    stepPessoal.style.display = "none";
-    stepEntrega.style.display = "block";
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
-
-  btnToPagamento.addEventListener("click", () => {
-    stepEntrega.style.display = "none";
-    stepPagamento.style.display = "block";
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
-</script>
-
-<script>
-  // Puxa os valores salvos no carrinho
-  const subtotal = localStorage.getItem("subtotal");
-  const frete = localStorage.getItem("frete");
-  const total = localStorage.getItem("total");
-
-  // Atualiza o resumo do checkout
-  if (subtotal && frete && total) {
-    document.getElementById("summary-subtotal").textContent = `R$ ${subtotal}`;
-    document.getElementById("summary-frete").textContent = `R$ ${frete}`;
-    document.getElementById("summary-total").textContent = `R$ ${total}`;
-  }
-</script>
-
-<script>
-  const payButtons = document.querySelectorAll('.payment-option');
-  const payForms = document.querySelectorAll('.payment-form');
-
-  payButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      payButtons.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      payForms.forEach(f => f.classList.add('hidden'));
-
-      const method = btn.dataset.method;
-      document.getElementById(`payment-${method}`).classList.remove('hidden');
-    });
-  });
-</script>
-  <script type="module" src="./js/auth.js"></script>
 
 </body>
-</html> 
+</html>
