@@ -1,48 +1,56 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel - Cyphus</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="auth.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Painel - Cyphus</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="auth.css">
 </head>
-<body>
+<body class="account-page">
+  <main class="account-wrapper">
+    <section class="account-box">
+      <div class="account-topbar">
+        <div>
+          <p class="account-eyebrow">Minha conta</p>
+          <h1 class="account-title">Painel do cliente</h1>
+          <p class="account-subtitle">
+            Acompanhe seu acesso e gerencie sua conta na Cyphus.
+          </p>
+        </div>
+        <button id="logout" class="auth-btn auth-btn-secondary logout-btn">Sair</button>
+      </div>
 
-      <header class="site-header">
-  <div class="container header-inner">
-    <a href="index.html" class="brand">CYPHUS</a>
+      <div class="account-grid">
+        <article class="account-card">
+          <h2 class="account-card-title">Seus dados</h2>
+          <p class="account-line"><strong>Nome:</strong> <span id="user-name"></span></p>
+          <p class="account-line"><strong>E-mail:</strong> <span id="user-email"></span></p>
+          <p class="account-line"><strong>ID:</strong> <span id="user-id"></span></p>
+          <p class="account-line"><strong>Endereço:</strong> <span id="user-address"></span></p>
+        </article>
 
-    <form class="header-search" action="#" method="get">
-      <input type="text" name="q" placeholder="Buscar" aria-label="Buscar produtos">
-      <button type="submit" aria-label="Pesquisar">
-        <!-- ícone da lupa -->
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8" />
-          <path d="M20 20L16.65 16.65" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
-        </svg>
-      </button>
-    </form>
+        <article class="account-card">
+          <h2 class="account-card-title">Ações rápidas</h2>
+          <div class="account-actions">
+            <a href="perfil.html" class="auth-btn auth-btn-primary auth-btn-link">Editar perfil</a>
+            <a href="shop-all.html" class="auth-btn auth-btn-secondary auth-btn-link">Continuar comprando</a>
+          </div>
+        </article>
+      </div>
 
-<nav class="main-nav">
-  <a href="carrinho.html">
-    Carrinho <span id="cart-count" class="cart-count"></span>
-  </a>
-    <a id="login-link" href="entrar.html">Entrar</a>
-  <a href="precisa-ajuda.html" target="_blank">Precisa de ajuda?</a>
-</nav>
-  </div>
-</header>
+      <section class="orders-section">
+        <div class="orders-header">
+          <h2 class="account-card-title">Meus pedidos</h2>
+          <p class="orders-subtitle">Acompanhe aqui suas compras mais recentes.</p>
+        </div>
 
-    <div class="auth-container">
-        <h2 class="auth-title">Painel do Usuário</h2>
+        <div id="orders-list" class="orders-list"></div>
+      </section>
+    </section>
+  </main>
 
-        <p id="user-email" class="user-info">Carregando...</p>
-
-        <button id="logout" class="btn btn-dark auth-btn">Sair</button>
-    </div>
-
-
-
+  <script type="module" src="./js/auth.js"></script>
+  <script type="module" src="./js/painel.js"></script>
 </body>
 </html>

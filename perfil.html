@@ -1,66 +1,62 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil - Cyphus</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="auth.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perfil - Cyphus</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="auth.css">
 </head>
-<body>
-
-    <!-- Cabeçalho padrão Cyphus -->
-    <header class="header">
-        <div class="container header-content">
-
-            <a href="index.html" class="logo">CYPHUS</a>
-
-            <div class="header-search">
-                <input type="text" placeholder="Buscar">
-            </div>
-
-            <nav class="header-nav">
-                <a href="carrinho.html">Carrinho</a>
-                <a href="perfil.html">Perfil</a>
-                <a href="#">Precisa de ajuda?</a>
-            </nav>
-
+<body class="account-page">
+  <main class="account-wrapper">
+    <section class="account-box">
+      <div class="account-topbar">
+        <div>
+          <p class="account-eyebrow">Minha conta</p>
+          <h1 class="account-title">Meu perfil</h1>
+          <p class="account-subtitle">
+            Atualize seus dados para manter sua conta sempre em dia.
+          </p>
         </div>
-    </header>
+        <button id="logout" class="auth-btn auth-btn-secondary logout-btn">Sair</button>
+      </div>
 
-    <!-- Conteúdo -->
-    <div class="auth-container profile-card">
+      <article class="account-card profile-card">
+        <p class="account-line"><strong>E-mail:</strong> <span id="user-email"></span></p>
 
-    <div class="profile-header">
-        <img id="profile-photo" class="profile-photo" src="default-avatar.png" alt="Foto de perfil">
-        <div class="profile-avatar" id="profile-avatar">T</div>
-        <h2 class="auth-title">Meu Perfil</h2>
-    </div>
+        <form id="form-perfil" class="auth-form profile-form">
+          <div class="auth-field">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" placeholder="Digite seu nome" />
+          </div>
 
-    <div class="profile-info">
-        <p><strong>Email:</strong> <span id="user-email"></span></p>
-        <p><strong>ID do usuário:</strong> <span id="user-uid"></span></p>
-        <p><strong>Endereço:</strong> <span id="user-address">Nenhum endereço cadastrado</span></p>
-    </div>
+          <div class="auth-field">
+            <label for="endereco">Endereço de entrega (padrão)</label>
+            <input
+            type="text"
+            id="endereco"
+            placeholder="Ex: Rua Exemplo, 123 - Centro"
+            maxlength="200"
+          />
+          </div>
 
-    <div class="profile-actions">
-        <button class="btn btn-dark auth-btn" id="change-email">Alterar Email</button>
-        <button class="btn btn-dark auth-btn" id="change-password">Alterar Senha</button>
-        <button class="btn btn-dark auth-btn" id="change-address">Alterar Endereço</button>
-        <button class="btn btn-dark auth-btn" id="upload-photo">Alterar Foto de Perfil</button>
-        <button class="btn btn-danger auth-btn" id="delete-account">Excluir Conta</button>
-        <button class="btn btn-dark auth-btn" id="logout">Sair</button>
-    </div>
+          <div class="auth-field">
+            <label for="avatar">URL da foto</label>
+            <input type="url" id="avatar" placeholder="Cole a URL da sua foto" />
+          </div>
 
-    <p class="auth-link">
-        <a href="index.html">Voltar para a loja</a>
-    </p>
+          <p id="mensagem" class="auth-message"></p>
 
-</div>
+          <div class="account-actions">
+            <button type="submit" class="auth-btn auth-btn-primary">Salvar alterações</button>
+            <a href="painel.html" class="auth-btn auth-btn-secondary auth-btn-link">Voltar ao painel</a>
+          </div>
+        </form>
+      </article>
+    </section>
+  </main>
 
-<!-- Input oculto para upload -->
-<input type="file" id="photo-input" accept="image/*" style="display:none;">
-
-
+  <script type="module" src="./js/auth.js"></script>
+  <script type="module" src="./js/perfil.js"></script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Criar conta - Cyphus</title>
+  <title>Nova senha - Cyphus</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="auth.css">
 </head>
@@ -12,38 +12,29 @@
     <section class="auth-box">
       <div class="auth-logo">Cyphus</div>
 
-      <h1 class="auth-title">Crie sua conta</h1>
+      <h1 class="auth-title">Criar nova senha</h1>
       <p class="auth-subtitle">
-        Cadastre-se para acompanhar seus pedidos, salvar seus dados e acessar sua área do cliente.
+        Defina uma nova senha para acessar sua conta.
       </p>
 
-      <form id="form-cadastro" class="auth-form">
+      <form id="form-nova-senha" class="auth-form">
         <div class="auth-field">
-          <label for="nome">Nome</label>
-          <input
-            type="text"
-            id="nome"
-            placeholder="Digite seu nome"
-            required
-          />
-        </div>
-
-        <div class="auth-field">
-          <label for="email">E-mail</label>
-          <input
-            type="email"
-            id="email"
-            placeholder="Digite seu e-mail"
-            required
-          />
-        </div>
-
-        <div class="auth-field">
-          <label for="senha">Senha</label>
+          <label for="senha">Nova senha</label>
           <input
             type="password"
             id="senha"
-            placeholder="Crie sua senha"
+            placeholder="Digite sua nova senha"
+            required
+            minlength="6"
+          />
+        </div>
+
+        <div class="auth-field">
+          <label for="confirmar-senha">Confirmar nova senha</label>
+          <input
+            type="password"
+            id="confirmar-senha"
+            placeholder="Confirme sua nova senha"
             required
             minlength="6"
           />
@@ -53,17 +44,17 @@
 
         <div class="auth-actions">
           <button type="submit" class="auth-btn auth-btn-primary">
-            Criar conta
+            Atualizar senha
           </button>
 
           <a href="entrar.html" class="auth-btn auth-btn-secondary auth-btn-link">
-            Já tenho conta
+            Voltar para entrar
           </a>
         </div>
       </form>
     </section>
   </main>
 
-  <script type="module" src="./js/auth.js"></script>
+  <script type="module" src="./js/nova-senha.js"></script>
 </body>
 </html>

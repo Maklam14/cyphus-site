@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pedido - Cyphus</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="auth.css">
+</head>
+<body class="account-page">
+  <main class="account-wrapper">
+    <section class="account-box">
+      <div class="account-topbar">
+        <div>
+          <p class="account-eyebrow">Minha conta</p>
+          <h1 class="account-title">Detalhes do pedido</h1>
+          <p class="account-subtitle">
+            Veja os produtos, status e dados principais da sua compra.
+          </p>
+        </div>
+        <a href="painel.html" class="auth-btn auth-btn-secondary auth-btn-link logout-btn">Voltar</a>
+      </div>
+
+      <div id="order-detail" class="orders-list"></div>
+    </section>
+  </main>
+
+  <script type="module" src="./js/auth.js"></script>
+  <script type="module" src="./js/pedido.js"></script>
+</body>
+</html>

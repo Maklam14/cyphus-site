@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Entrar - Cyphus</title>
+  <title>Recuperar senha - Cyphus</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="auth.css">
 </head>
@@ -12,12 +12,12 @@
     <section class="auth-box">
       <div class="auth-logo">Cyphus</div>
 
-      <h1 class="auth-title">Acesse sua conta</h1>
+      <h1 class="auth-title">Recuperar senha</h1>
       <p class="auth-subtitle">
-        Entre para acompanhar seus pedidos, editar seu perfil e acessar sua área do cliente.
+        Digite seu e-mail para receber um link de redefinição de senha.
       </p>
 
-      <form id="form-login" class="auth-form">
+      <form id="form-esqueci-senha" class="auth-form">
         <div class="auth-field">
           <label for="email">E-mail</label>
           <input
@@ -28,31 +28,21 @@
           />
         </div>
 
-        <div class="auth-field">
-          <label for="senha">Senha</label>
-          <input
-            type="password"
-            id="senha"
-            placeholder="Digite sua senha"
-            required
-          />
-        </div>
-
-        <a href="esqueci-senha.html" class="auth-link">Esqueceu a senha?</a>
-
         <p id="mensagem" class="auth-message"></p>
 
         <div class="auth-actions">
-          <button type="submit" class="auth-btn auth-btn-primary">Entrar</button>
+          <button type="submit" class="auth-btn auth-btn-primary">
+            Enviar link
+          </button>
 
-          <a href="criar-conta.html" class="auth-btn auth-btn-secondary auth-btn-link">
-            Quero criar minha conta
+          <a href="entrar.html" class="auth-btn auth-btn-secondary auth-btn-link">
+            Voltar para entrar
           </a>
         </div>
       </form>
     </section>
   </main>
 
-  <script type="module" src="./js/auth.js"></script>
+  <script type="module" src="./js/esqueci-senha.js"></script>
 </body>
 </html>
