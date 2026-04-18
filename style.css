@@ -1726,20 +1726,19 @@ input:focus {
 .header-inner {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 16px;
-  flex-wrap: wrap;
 }
 
 .header-search {
-  flex: 1 1 220px;
-  min-width: 0;
+  flex: 1;
+  max-width: 420px;
 }
 
 .main-nav {
   display: flex;
   align-items: center;
-  gap: 16px;
-  flex-wrap: wrap;
+  gap: 18px;
 }
 
 .btn-next,

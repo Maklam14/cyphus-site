@@ -1,0 +1,91 @@
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.header-search {
+  flex: 1;
+  max-width: 420px;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+@media (max-width: 768px) {
+  .site-header {
+    padding: 12px 0;
+  }
+
+  .header-inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "brand brand"
+      "search search"
+      "nav nav";
+    gap: 12px;
+    align-items: center;
+  }
+
+  .brand {
+    grid-area: brand;
+    display: inline-block;
+    width: auto;
+    font-size: 1.6rem;
+    line-height: 1;
+  }
+
+  .header-search {
+    grid-area: search;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .main-nav {
+    grid-area: nav;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .main-nav a {
+    font-size: 0.95rem;
+    white-space: nowrap;
+  }
+
+  .main-nav a[href="precisa-ajuda.html"] {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-inner {
+    gap: 10px;
+  }
+
+  .brand {
+    font-size: 1.45rem;
+  }
+
+  .main-nav {
+    justify-content: flex-start;
+    gap: 20px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .main-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .main-nav a {
+    flex: 0 0 auto;
+  }
+}
