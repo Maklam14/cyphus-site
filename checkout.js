@@ -1,4 +1,10 @@
-import { supabase } from './js/supabase.js';
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+
+const supabase = createClient(
+  "https://xvtcbkiucwyybdfeewtv.supabase.co", // seu URL
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh2dGNia2l1Y3d5eWJkZmVld3R2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU5MzQyNTQsImV4cCI6MjA5MTUxMDI1NH0.8iWkuN5qDgo0iMHCOH6K0dx1J0WNgxC_3z2y4ixIbdA" // sua anon key
+);
+
 
 const CART_KEY = 'cyphus_cart';
 
@@ -196,21 +202,36 @@ async function iniciarPagamentoPix(cartData, formData) {
     }
   };
 
-  const { data, error } = await supabase.functions.invoke('create-mercadopago-pix', {
-    body: payload
-  });
+// 1. Pega a sessão atual do usuário
+const { data: { session } } = await supabase.auth.getSession();
 
-  if (error) {
-    console.error("Erro PIX:", error);
+if (!session?.access_token) {
+  throw new Error("Usuário não autenticado.");
+}
 
-    if (error.context) {
-      const errorText = await error.context.text();
-      console.error("Resposta PIX:", errorText);
-      throw new Error(errorText);
-    } else {
-      throw new Error(error.message || "Tente novamente");
+// 2. Chama a Edge Function enviando o token no header
+const { data, error } = await supabase.functions.invoke(
+  'create-mercadopago-pix',
+  {
+    body: payload,
+    headers: {
+      Authorization: `Bearer ${session.access_token}`
     }
   }
+);
+
+if (error) {
+  console.error("Erro PIX:", error);
+
+  if (error.context) {
+    const errorText = await error.context.text();
+    console.error("Resposta PIX:", errorText);
+    throw new Error(errorText);
+  } else {
+    throw new Error(error.message || "Tente novamente");
+  }
+}
+
 
   const transactionData = data?.point_of_interaction?.transaction_data;
 
