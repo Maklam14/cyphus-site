@@ -1,10 +1,4 @@
-import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
-
-const supabase = createClient(
-  "https://xvtcbkiucwyybdfeewtv.supabase.co", // seu URL
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh2dGNia2l1Y3d5eWJkZmVld3R2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU5MzQyNTQsImV4cCI6MjA5MTUxMDI1NH0.8iWkuN5qDgo0iMHCOH6K0dx1J0WNgxC_3z2y4ixIbdA" // sua anon key
-);
-
+import { supabase } from './js/supabase.js';
 
 const CART_KEY = 'cyphus_cart';
 
@@ -209,7 +203,6 @@ if (!session?.access_token) {
   throw new Error("Usuário não autenticado.");
 }
 
-// 2. Chama a Edge Function enviando o token no header
 const { data, error } = await supabase.functions.invoke(
   'create-mercadopago-pix',
   {
@@ -219,6 +212,7 @@ const { data, error } = await supabase.functions.invoke(
     }
   }
 );
+
 
 if (error) {
   console.error("Erro PIX:", error);
