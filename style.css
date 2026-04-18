@@ -1667,3 +1667,164 @@ input:focus {
   border-radius: 10px;
   border: 1px solid #ddd;
 }
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.checkout-container,
+.checkout-left,
+.checkout-summary,
+.form-row,
+.header-inner,
+.main-nav {
+  min-width: 0;
+}
+
+.checkout-section {
+  padding: 24px 16px;
+}
+
+.checkout-container {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 24px;
+  align-items: start;
+}
+
+.checkout-left {
+  min-width: 0;
+}
+
+.checkout-summary {
+  min-width: 0;
+  width: 100%;
+}
+
+.checkout-block {
+  width: 100%;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea,
+.btn-next,
+.btn-finalizar-pedido,
+.back-cart {
+  width: 100%;
+  max-width: 100%;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.header-search {
+  flex: 1 1 220px;
+  min-width: 0;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn-next,
+.btn-finalizar-pedido {
+  min-height: 52px;
+  padding: 14px 18px;
+  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.back-cart {
+  display: block;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .checkout-container {
+    grid-template-columns: 1fr;
+  }
+
+  .checkout-summary {
+    order: 2;
+  }
+
+  .checkout-left {
+    order: 1;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .header-inner {
+    align-items: stretch;
+  }
+
+  .brand {
+    width: 100%;
+  }
+
+  .header-search {
+    order: 2;
+    width: 100%;
+  }
+
+  .main-nav {
+    order: 3;
+    width: 100%;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .checkout-section {
+    padding: 16px 12px;
+  }
+
+  .checkout-container {
+    gap: 16px;
+  }
+
+  .checkout-block,
+  .checkout-summary {
+    padding: 18px;
+    border-radius: 16px;
+  }
+
+  .block-title {
+    font-size: 32px;
+    line-height: 1;
+    margin-bottom: 20px;
+  }
+
+  .main-nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 14px;
+  }
+
+  .main-nav a {
+    word-break: break-word;
+  }
+}
