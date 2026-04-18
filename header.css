@@ -53,3 +53,22 @@
     font-size: 16px;
   }
 }
+
+
+
+#message-box {
+  background: #ffe9c4;
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  font-size: 15px;
+  color: #5a3d00;
+}
+
+#message-box.show {
+  display: block;
+}
+
+#message-box.hidden {
+  display: none;
+}

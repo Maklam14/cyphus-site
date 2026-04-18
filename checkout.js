@@ -45,6 +45,13 @@ paymentButtons.forEach((button) => {
   });
 });
 
+
+function mostrarMensagem(texto) {
+  const box = document.getElementById("mensagem-erro");
+  box.innerText = texto;
+  box.style.display = "block";
+}
+
 function updateSummary() {
   const subtotal = parseFloat(localStorage.getItem('subtotal') || '0');
   const frete = parseFloat(localStorage.getItem('frete') || '0');
@@ -200,8 +207,10 @@ async function iniciarPagamentoPix(cartData, formData) {
 const { data: { session } } = await supabase.auth.getSession();
 
 if (!session?.access_token) {
-  throw new Error("Usuário não autenticado.");
+  mostrarMensagem("Você precisa estar logado para continuar. Crie sua conta ou faça login para finalizar o pagamento com segurança.");
+  return;
 }
+
 
 const { data, error } = await supabase.functions.invoke(
   'create-mercadopago-pix',
